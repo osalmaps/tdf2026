@@ -1,0 +1,26 @@
+name: Update TdF results
+
+# Runs automatically every evening during July and writes that day's
+# stage winner(s) into Firestore. You can also trigger it by hand from
+# the Actions tab (Run workflow) to test it any time.
+
+on:
+  schedule:
+    - cron: '0 18 * 7 *'   # 20:00 CEST, every day in July
+    - cron: '0 21 * 7 *'   # 23:00 CEST, catches late mountain finishes
+  workflow_dispatch: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+      - name: Fetch results and write to Firestore
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: python scripts/update_results.py
