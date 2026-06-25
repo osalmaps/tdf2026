@@ -13,19 +13,24 @@
     --display:'Saira Condensed','Arial Narrow',system-ui,sans-serif;
     --body:'Inter',system-ui,-apple-system,sans-serif;
   }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#ECECEC; --ink-soft:#9AA0A8; --paper:#14151A; --line:#2A2D34; --card:#1C1E24;
+      --shadow:0 1px 0 rgba(0,0,0,.2), 0 12px 28px -18px rgba(0,0,0,.8); }
+  }
   *{box-sizing:border-box}
   html,body{margin:0}
   body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.45;-webkit-text-size-adjust:100%}
   body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
     background-image:radial-gradient(120% 90% at 80% -10%, rgba(255,212,0,.10), transparent 55%),
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><g fill='none' stroke='%23000' stroke-opacity='0.04' stroke-width='1'><path d='M-20 120 C120 60 200 180 340 120 S560 60 640 140'/><path d='M-20 200 C120 140 200 260 340 200 S560 140 640 220'/><path d='M-20 280 C120 220 200 340 340 280 S560 220 640 300'/><path d='M-20 360 C120 300 200 420 340 360 S560 300 640 380'/><path d='M-20 440 C120 380 200 500 340 440 S560 380 640 460'/><path d='M-20 520 C120 460 200 580 340 520 S560 460 640 540'/></g></svg>");}
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><g fill='none' stroke='%23808080' stroke-opacity='0.10' stroke-width='1'><path d='M-20 120 C120 60 200 180 340 120 S560 60 640 140'/><path d='M-20 200 C120 140 200 260 340 200 S560 140 640 220'/><path d='M-20 280 C120 220 200 340 340 280 S560 220 640 300'/><path d='M-20 360 C120 300 200 420 340 360 S560 300 640 380'/><path d='M-20 440 C120 380 200 500 340 440 S560 380 640 460'/><path d='M-20 520 C120 460 200 580 340 520 S560 460 640 540'/></g></svg>");}
   .wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:18px 16px 64px}
 
-  .banner{background:#FFF6D6;border:1px solid #EBD98A;border-radius:12px;padding:12px 14px;margin-bottom:14px;font-size:13px;line-height:1.5}
-  .banner b{font-family:var(--display);text-transform:uppercase;letter-spacing:.06em}
-  .banner code{background:#fff;border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:12px}
-
   .masthead{border-bottom:3px solid var(--ink);padding-bottom:14px}
+  .topline{display:flex;justify-content:flex-end;margin-bottom:10px}
+  .langsw{display:flex;gap:3px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px}
+  .langsw button{border:0;background:transparent;cursor:pointer;font-family:var(--display);font-weight:700;
+    font-size:12px;letter-spacing:.08em;padding:5px 11px;border-radius:999px;color:var(--ink-soft)}
+  .langsw button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
   .jerseybar{display:flex;height:7px;border-radius:4px;overflow:hidden;margin-bottom:14px;box-shadow:var(--shadow)}
   .jerseybar i{flex:1}
   .eyebrow{font-family:var(--display);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:12px;color:var(--ink-soft)}
@@ -41,13 +46,13 @@
 
   .namebar{display:flex;gap:10px;align-items:flex-end;margin:18px 0 0}
   .namebar .grow{flex:1}
-  .livedot{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+  .livedot{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);padding-bottom:11px}
   .livedot i{width:8px;height:8px;border-radius:50%;background:var(--ink-soft)}
   .livedot.on i{background:var(--vert);box-shadow:0 0 0 3px rgba(22,163,74,.18)}
 
-  .tabs{display:flex;gap:4px;margin:14px 0 18px;background:#ECE8DE;padding:4px;border-radius:12px}
+  .tabs{display:flex;gap:4px;margin:14px 0 18px;background:color-mix(in srgb, var(--ink) 8%, transparent);padding:4px;border-radius:12px}
   .tab{flex:1;border:0;background:transparent;cursor:pointer;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:13px;padding:10px 4px;border-radius:9px;color:var(--ink-soft)}
-  .tab[aria-selected="true"]{background:var(--ink);color:#fff;box-shadow:var(--shadow)}
+  .tab[aria-selected="true"]{background:var(--ink);color:var(--paper);box-shadow:var(--shadow)}
 
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:var(--shadow)}
   .card-h{display:flex;align-items:center;gap:12px;margin-bottom:12px}
@@ -57,28 +62,26 @@
   .pts{margin-left:auto;font-family:var(--display);font-weight:800;font-size:15px;color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:2px 10px;white-space:nowrap}
 
   label.fld{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 6px}
-  input[type=text],input[type=number],select{width:100%;font-family:var(--body);font-size:16px;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;appearance:none}
-  select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 5l4 4 4-4' fill='none' stroke='%2315171C' stroke-width='1.6'/></svg>");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
+  input[type=text],input[type=number],select{width:100%;font-family:var(--body);font-size:16px;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;appearance:none}
+  select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 5l4 4 4-4' fill='none' stroke='%23808080' stroke-width='1.6'/></svg>");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
   input:focus,select:focus{outline:none;border-color:var(--ink)}
-  select:disabled{background-color:#F1EEE7;color:var(--ink-soft);cursor:not-allowed;opacity:1}
+  select:disabled{opacity:.6;cursor:not-allowed}
   .twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .other{margin-top:8px}
   .hint{font-size:12px;color:var(--ink-soft);margin:6px 0 0}
 
   .seg-toggle{display:flex;gap:8px}
-  .seg-toggle button{flex:1;font-family:var(--display);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em;padding:11px;border:1.5px solid var(--line);background:#fff;border-radius:10px;cursor:pointer;color:var(--ink-soft)}
-  .seg-toggle button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .seg-toggle button{flex:1;font-family:var(--display);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em;padding:11px;border:1.5px solid var(--line);background:var(--card);border-radius:10px;cursor:pointer;color:var(--ink-soft)}
+  .seg-toggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
-  .cta{width:100%;border:0;cursor:pointer;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:18px;color:var(--ink);background:var(--jaune);padding:15px;border-radius:12px;box-shadow:var(--shadow);margin-top:4px}
-  .cta:disabled{background:#E7E3DA;color:var(--ink-soft);cursor:not-allowed;box-shadow:none}
+  .cta{width:100%;border:0;cursor:pointer;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:18px;color:#15171C;background:var(--jaune);padding:15px;border-radius:12px;box-shadow:var(--shadow);margin-top:4px}
+  .cta:disabled{background:color-mix(in srgb, var(--ink) 12%, transparent);color:var(--ink-soft);cursor:not-allowed;box-shadow:none}
   .toast{font-size:13px;text-align:center;margin-top:10px;min-height:18px;font-weight:600}
   .toast.ok{color:var(--vert)} .toast.err{color:var(--pois)}
 
-  /* stages */
   .stage{display:grid;grid-template-columns:46px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
   .stage:last-child{border-bottom:0}
-  .stage .num{font-family:var(--display);font-weight:800;font-size:21px;text-align:center;line-height:1;
-    border:2px solid var(--ink);border-radius:9px;padding:6px 0;height:fit-content}
+  .stage .num{font-family:var(--display);font-weight:800;font-size:21px;text-align:center;line-height:1;border:2px solid var(--ink);border-radius:9px;padding:6px 0;height:fit-content}
   .stage.locked .num{border-color:var(--line);color:var(--ink-soft)}
   .stage .meta{display:flex;flex-direction:column;gap:7px;min-width:0}
   .stage .top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
@@ -87,15 +90,11 @@
   .chip{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
   .chip.flat{background:#E8F2FB;color:#1D6FB8} .chip.hills{background:#FCEFE0;color:#B5701B}
   .chip.mountains{background:#FBE6E8;color:#B21D2A} .chip.itt,.chip.ttt{background:#ECEAFB;color:#5b4bb8}
-  .stage .lockmsg{font-size:11px;color:var(--ink-soft)}
   .stage .win{font-size:13px}
-  .stage .win b{color:var(--vert)}
-  .rest{display:flex;align-items:center;gap:10px;padding:11px 0;color:var(--ink-soft);font-family:var(--display);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:13px;border-bottom:1px solid var(--line)}
-  .rest::before{content:"";flex:none;width:46px;text-align:center}
-  .stagewrap-foot{display:flex;gap:10px;align-items:center;position:sticky;bottom:10px;margin-top:6px}
-  .savepill{font-size:12px;color:var(--vert);font-weight:600;min-height:16px}
+  .rest{display:flex;align-items:center;gap:10px;padding:11px 0 11px 58px;color:var(--ink-soft);font-family:var(--display);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:13px;border-bottom:1px solid var(--line)}
+  .stagewrap-foot{position:sticky;bottom:10px;margin-top:6px}
+  .savepill{font-size:12px;color:var(--vert);font-weight:600;min-height:16px;margin-top:6px}
 
-  /* leaderboard */
   .lb-row{display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:10px;padding:12px 4px;border-bottom:1px solid var(--line)}
   .lb-row:last-child{border-bottom:0}
   .rank{font-family:var(--display);font-weight:800;font-size:20px;color:var(--ink-soft);text-align:center}
@@ -103,7 +102,7 @@
   .who{font-weight:600}
   .subline{font-size:12px;color:var(--ink-soft);margin-top:2px}
   .mini{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap}
-  .mini i{width:14px;height:14px;border-radius:3px;border:1px solid rgba(0,0,0,.12);display:inline-block}
+  .mini i{width:14px;height:14px;border-radius:3px;border:1px solid rgba(128,128,128,.25);display:inline-block}
   .mini i.miss{opacity:.22}
   .score{font-family:var(--display);font-weight:800;font-size:24px;text-align:right;line-height:1}
   .score small{display:block;font-family:var(--body);font-weight:500;font-size:11px;color:var(--ink-soft);letter-spacing:.06em}
@@ -118,7 +117,6 @@
   .saved-flag{font-size:12px;color:var(--vert);font-weight:600;margin-top:8px;text-align:center;min-height:16px}
 
   footer{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-soft);line-height:1.6}
-  footer b{color:var(--ink)}
   .credit{font-family:var(--display);letter-spacing:.1em;text-transform:uppercase;margin-top:8px}
   @media(max-width:480px){ .twocol{grid-template-columns:1fr} .factbar{gap:14px} }
 </style>
@@ -128,31 +126,39 @@
   <div id="setup"></div>
 
   <header class="masthead">
+    <div class="topline">
+      <div class="langsw" id="langsw">
+        <button data-lang="en" aria-pressed="true">EN</button>
+        <button data-lang="no" aria-pressed="false">NO</button>
+        <button data-lang="sv" aria-pressed="false">SV</button>
+        <button data-lang="da" aria-pressed="false">DA</button>
+      </div>
+    </div>
     <div class="jerseybar"><i style="background:var(--jaune)"></i><i style="background:var(--vert)"></i><i style="background:var(--pois)"></i><i style="background:#fff;box-shadow:inset 0 0 0 1px var(--line)"></i></div>
-    <div class="eyebrow">Crew Prediction Pool · 4–26 July</div>
+    <div class="eyebrow" data-i18n="eyebrow"></div>
     <h1 id="title">Tour de France 2026</h1>
     <div class="route"><span class="dot"></span>Barcelona<span class="seg"></span>Paris · Montmartre<span class="dot"></span></div>
     <div class="factbar">
-      <div class="fact cd"><span class="n" id="cd">—</span><span class="l">to Grand Départ</span></div>
-      <div class="fact"><span class="n">21</span><span class="l">stages</span></div>
+      <div class="fact cd"><span class="n" id="cd">—</span><span class="l" data-i18n="cd_label"></span></div>
+      <div class="fact"><span class="n">21</span><span class="l" data-i18n="fact_stages"></span></div>
       <div class="fact"><span class="n">3 333</span><span class="l">km</span></div>
-      <div class="fact"><span class="n">54 450</span><span class="l">m climbed</span></div>
+      <div class="fact"><span class="n">54 450</span><span class="l" data-i18n="fact_climb"></span></div>
     </div>
   </header>
 
   <div class="namebar">
     <div class="grow">
-      <label class="fld" for="me">Riding as</label>
-      <input type="text" id="me" placeholder="your name" autocomplete="off">
+      <label class="fld" for="me" data-i18n="riding_as"></label>
+      <input type="text" id="me" data-i18n-ph="name_ph" autocomplete="off">
     </div>
-    <span class="livedot" id="live" title="connection"><i></i><span id="livetxt">local</span></span>
+    <span class="livedot" id="live"><i></i><span id="livetxt"></span></span>
   </div>
 
   <div class="tabs" role="tablist">
-    <button class="tab" role="tab" aria-selected="true"  data-tab="predict">Jerseys</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="stages">Stages</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="board">Standings</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="results">Results</button>
+    <button class="tab" role="tab" aria-selected="true"  data-tab="predict" data-i18n="tab_jerseys"></button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="stages"  data-i18n="tab_stages"></button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="board"   data-i18n="tab_board"></button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="results" data-i18n="tab_results"></button>
   </div>
 
   <section id="predict"></section>
@@ -161,24 +167,14 @@
   <section id="results" hidden></section>
 
   <footer>
-    <b>Scoring —</b> Yellow 25 · Green/Polka/White 15 each · GC 2nd &amp; 3rd 10 each · “Beat Pogačar?” 10 · every correct stage winner 5.
-    Ties broken by who’s closest on Pogačar’s stage-win count.<br>
-    <b>Locks —</b> jersey picks close at the Barcelona team time trial (4 July); each stage pick closes when that stage rolls out. Rest days 13 &amp; 20 July.
+    <div data-i18n="footer_scoring"></div>
+    <div data-i18n="footer_locks" style="margin-top:6px"></div>
     <div class="credit">Allez allez allez</div>
   </footer>
 </div>
 
 <script type="module">
-/* ============================================================
-   1) FIREBASE CONFIG  — paste your project's config here.
-   You can reuse your existing osalmaps Firebase project; this app
-   only touches two collections: tdf2026_predictions + tdf2026_results.
-   Until a real key is pasted, the app runs in local demo mode
-   (this device only) so you can still click through it.
-   Firestore rules for a trusted office pool:
-     match /tdf2026_predictions/{d} { allow read, write: if true; }
-     match /tdf2026_results/{d}     { allow read, write: if true; }
-   ============================================================ */
+/* ============ FIREBASE CONFIG ============ */
 const firebaseConfig = {
   apiKey: "AIzaSyDeqX8P2FO4HloxeCbzMbqxNPaJg5yfTPA",
   authDomain: "resort-room-manager-ai-app.firebaseapp.com",
@@ -188,11 +184,130 @@ const firebaseConfig = {
   appId: "1:296157308309:web:fe68beba7596233e6ec29c"
 };
 const CONFIGURED = !String(firebaseConfig.apiKey).startsWith("PASTE");
+const POOL_NAME = "Crew Prediction Pool";
 
-/* ---------------- pool name (rename freely) ---------------- */
-const POOL_NAME = "Tour de France 2026";
+/* ============ I18N ============ */
+const I18N = {
+  en:{
+    eyebrow:"Tour de France 2026 · 4–26 July", cd_label:"to Grand Départ",
+    fact_stages:"stages", fact_climb:"m climbed",
+    riding_as:"Riding as", name_ph:"your name", live:"live", local:"local",
+    tab_jerseys:"Jerseys", tab_stages:"Stages", tab_board:"Standings", tab_results:"Results",
+    sub_yellow:"Overall winner", sub_green:"Points / sprints", sub_polka:"King of the Mountains", sub_white:"Best young rider",
+    podium:"GC Podium", podium_sub:"Who joins the winner on the box", second:"2nd overall", third:"3rd overall",
+    bigq:"The big question", bigq_sub:"Can anyone beat Pogačar to yellow?", yes_upset:"Yes — upset", no_pogi:"No — Pogi again",
+    tiebreak:"Tie-break · Pogačar's stage wins (0–10)", your_guess:"your guess",
+    pick_rider:"— pick a rider —", other:"Other…", type_name:"Type a rider name",
+    save_jerseys:"Save jersey picks", jerseys_locked:"Jersey picks are locked",
+    err_name:"Add your name up top first.", err_jerseys:"Pick a rider for every jersey and both podium spots.",
+    err_bigq:"Answer the Pogačar question.", saved_jerseys:"Saved. Bonne chance!", save_fail:"Save failed — check the connection.",
+    stages_intro:"Pick a stage winner each day — 5 pts per correct call. Each stage locks when it rolls out; you can edit until then.",
+    rest_day:"Rest day", type_ttt:"Team TT", type_itt:"Time trial", type_flat:"flat", type_hills:"hills", type_mountains:"mountains",
+    your_pick:"Your pick:", winner:"winner:", save_stages:"Save stage picks", stages_saved:"Stage picks saved.",
+    board_empty:"No entries yet. Add your name and make some picks.",
+    board_pending:"Standings light up as results are entered. For now this is the field of entries.",
+    sub_scored:"{j} jersey · {s} stage ({c} hit)", sub_picked:"{n}/21 stages picked",
+    pts:"PTS", pending:"pending", jersey_card:"{name}'s jersey card",
+    results_desk:"Results desk", pin_prompt:"Enter the PIN to record finishers", pin_wrong:"Not quite.",
+    final_winner:"Final winner", final_23:"Final 2nd & 3rd", outcome:"Outcome", beat_q:"Did anyone beat Pogačar?",
+    yes:"Yes", no:"No", pog_actual:"Pogačar's actual stage wins", stage_winners:"Stage winners", fill_after:"Fill in after each stage",
+    publish:"Publish results", published:"Published — standings updated live.",
+    auto_note:"Stage winners fill in automatically each evening during the race. You can override any of them here.",
+    footer_scoring:"Scoring — Yellow 25 · Green / Polka-dot / White 15 each · GC 2nd & 3rd 10 each · “Beat Pogačar?” 10 · every correct stage winner 5. Ties broken by who's closest on Pogačar's stage-win count.",
+    footer_locks:"Locks — jersey picks close at the Barcelona team time trial (4 July); each stage pick closes when that stage rolls out. Rest days 13 & 20 July."
+  },
+  no:{
+    eyebrow:"Tour de France 2026 · 4.–26. juli", cd_label:"til start",
+    fact_stages:"etapper", fact_climb:"høydemeter",
+    riding_as:"Spiller som", name_ph:"navnet ditt", live:"live", local:"lokal",
+    tab_jerseys:"Trøyer", tab_stages:"Etapper", tab_board:"Stilling", tab_results:"Resultater",
+    sub_yellow:"Sammenlagtvinner", sub_green:"Poeng / spurt", sub_polka:"Klatrekonge", sub_white:"Beste ungrytter",
+    podium:"Sammenlagt-pall", podium_sub:"Hvem står på pallen med vinneren", second:"2. sammenlagt", third:"3. sammenlagt",
+    bigq:"Det store spørsmålet", bigq_sub:"Kan noen slå Pogačar til gul trøye?", yes_upset:"Ja — overraskelse", no_pogi:"Nei — Pogi igjen",
+    tiebreak:"Skille · Pogačars etappeseire (0–10)", your_guess:"ditt tips",
+    pick_rider:"— velg en rytter —", other:"Annen…", type_name:"Skriv et rytternavn",
+    save_jerseys:"Lagre trøyetips", jerseys_locked:"Trøyetips er låst",
+    err_name:"Skriv navnet ditt øverst først.", err_jerseys:"Velg en rytter for hver trøye og begge pallplassene.",
+    err_bigq:"Svar på Pogačar-spørsmålet.", saved_jerseys:"Lagret. Bonne chance!", save_fail:"Lagring feilet — sjekk tilkoblingen.",
+    stages_intro:"Velg en etappevinner hver dag — 5 poeng for hver rett. Hver etappe låses når den starter; du kan endre frem til da.",
+    rest_day:"Hviledag", type_ttt:"Lagtempo", type_itt:"Tempo", type_flat:"flat", type_hills:"kupert", type_mountains:"fjell",
+    your_pick:"Ditt tips:", winner:"vinner:", save_stages:"Lagre etappetips", stages_saved:"Etappetips lagret.",
+    board_empty:"Ingen påmeldte ennå. Skriv navnet ditt og gjør noen tips.",
+    board_pending:"Stillingen lyser opp når resultater legges inn. Foreløpig er dette oversikten over påmeldte.",
+    sub_scored:"{j} trøye · {s} etappe ({c} rett)", sub_picked:"{n}/21 etapper tippet",
+    pts:"POENG", pending:"venter", jersey_card:"{name} sine trøyetips",
+    results_desk:"Resultatpult", pin_prompt:"Skriv PIN for å registrere resultater", pin_wrong:"Ikke helt.",
+    final_winner:"Endelig vinner", final_23:"Endelig 2. og 3.", outcome:"Utfall", beat_q:"Slo noen Pogačar?",
+    yes:"Ja", no:"Nei", pog_actual:"Pogačars faktiske etappeseire", stage_winners:"Etappevinnere", fill_after:"Fyll inn etter hver etappe",
+    publish:"Publiser resultater", published:"Publisert — stillingen oppdatert live.",
+    auto_note:"Etappevinnere fylles inn automatisk hver kveld under rittet. Du kan overstyre dem her.",
+    footer_scoring:"Poeng — Gul 25 · Grønn / Prikket / Hvit 15 hver · Sammenlagt 2. & 3. 10 hver · «Slå Pogačar?» 10 · hver rett etappevinner 5. Likt avgjøres av hvem som er nærmest på Pogačars antall etappeseire.",
+    footer_locks:"Låsing — trøyetips stenger ved lagtempoen i Barcelona (4. juli); hvert etappetips stenger når etappen starter. Hviledager 13. og 20. juli."
+  },
+  da:{
+    eyebrow:"Tour de France 2026 · 4.–26. juli", cd_label:"til start",
+    fact_stages:"etaper", fact_climb:"højdemeter",
+    riding_as:"Spiller som", name_ph:"dit navn", live:"live", local:"lokal",
+    tab_jerseys:"Trøjer", tab_stages:"Etaper", tab_board:"Stilling", tab_results:"Resultater",
+    sub_yellow:"Sammenlagtvinder", sub_green:"Point / spurt", sub_polka:"Bjergkonge", sub_white:"Bedste unge rytter",
+    podium:"Samlet podie", podium_sub:"Hvem deler podiet med vinderen", second:"2. samlet", third:"3. samlet",
+    bigq:"Det store spørgsmål", bigq_sub:"Kan nogen slå Pogačar til den gule trøje?", yes_upset:"Ja — overraskelse", no_pogi:"Nej — Pogi igen",
+    tiebreak:"Afgørelse · Pogačars etapesejre (0–10)", your_guess:"dit gæt",
+    pick_rider:"— vælg en rytter —", other:"Anden…", type_name:"Skriv et rytternavn",
+    save_jerseys:"Gem trøjetips", jerseys_locked:"Trøjetips er låst",
+    err_name:"Skriv dit navn øverst først.", err_jerseys:"Vælg en rytter for hver trøje og begge podiepladser.",
+    err_bigq:"Besvar Pogačar-spørgsmålet.", saved_jerseys:"Gemt. Bonne chance!", save_fail:"Lagring mislykkedes — tjek forbindelsen.",
+    stages_intro:"Vælg en etapevinder hver dag — 5 point for hver rigtig. Hver etape låses, når den starter; du kan rette indtil da.",
+    rest_day:"Hviledag", type_ttt:"Holdtidskørsel", type_itt:"Enkeltstart", type_flat:"flad", type_hills:"kuperet", type_mountains:"bjerge",
+    your_pick:"Dit tip:", winner:"vinder:", save_stages:"Gem etapetips", stages_saved:"Etapetips gemt.",
+    board_empty:"Ingen tilmeldte endnu. Skriv dit navn og lav nogle tip.",
+    board_pending:"Stillingen lyser op, når resultater indtastes. Indtil videre er dette oversigten over tilmeldte.",
+    sub_scored:"{j} trøje · {s} etape ({c} rigtige)", sub_picked:"{n}/21 etaper tippet",
+    pts:"POINT", pending:"afventer", jersey_card:"{name}s trøjetips",
+    results_desk:"Resultatpult", pin_prompt:"Indtast PIN for at registrere resultater", pin_wrong:"Ikke helt.",
+    final_winner:"Endelig vinder", final_23:"Endelig 2. og 3.", outcome:"Udfald", beat_q:"Slog nogen Pogačar?",
+    yes:"Ja", no:"Nej", pog_actual:"Pogačars faktiske etapesejre", stage_winners:"Etapevindere", fill_after:"Udfyld efter hver etape",
+    publish:"Offentliggør resultater", published:"Offentliggjort — stillingen opdateret live.",
+    auto_note:"Etapevindere udfyldes automatisk hver aften under løbet. Du kan tilsidesætte dem her.",
+    footer_scoring:"Point — Gul 25 · Grøn / Prikket / Hvid 15 hver · Samlet 2. & 3. 10 hver · »Slå Pogačar?« 10 · hver rigtig etapevinder 5. Lige stilling afgøres af, hvem der er tættest på Pogačars antal etapesejre.",
+    footer_locks:"Låsning — trøjetips lukker ved holdtidskørslen i Barcelona (4. juli); hvert etapetip lukker, når etapen starter. Hviledage 13. og 20. juli."
+  },
+  sv:{
+    eyebrow:"Tour de France 2026 · 4–26 juli", cd_label:"till start",
+    fact_stages:"etapper", fact_climb:"höjdmeter",
+    riding_as:"Spelar som", name_ph:"ditt namn", live:"live", local:"lokal",
+    tab_jerseys:"Tröjor", tab_stages:"Etapper", tab_board:"Ställning", tab_results:"Resultat",
+    sub_yellow:"Sammanlagd vinnare", sub_green:"Poäng / spurt", sub_polka:"Bergskung", sub_white:"Bästa unga ryttare",
+    podium:"Sammanlagd pall", podium_sub:"Vilka står på pallen med vinnaren", second:"2:a sammanlagt", third:"3:e sammanlagt",
+    bigq:"Den stora frågan", bigq_sub:"Kan någon slå Pogačar till gula tröjan?", yes_upset:"Ja — skräll", no_pogi:"Nej — Pogi igen",
+    tiebreak:"Avgörande · Pogačars etappsegrar (0–10)", your_guess:"din gissning",
+    pick_rider:"— välj en ryttare —", other:"Annan…", type_name:"Skriv ett ryttarnamn",
+    save_jerseys:"Spara tröjtips", jerseys_locked:"Tröjtipsen är låsta",
+    err_name:"Skriv ditt namn högst upp först.", err_jerseys:"Välj en ryttare för varje tröja och båda pallplatserna.",
+    err_bigq:"Svara på Pogačar-frågan.", saved_jerseys:"Sparat. Bonne chance!", save_fail:"Sparning misslyckades — kontrollera anslutningen.",
+    stages_intro:"Välj en etappvinnare varje dag — 5 poäng för varje rätt. Varje etapp låses när den startar; du kan ändra fram till dess.",
+    rest_day:"Vilodag", type_ttt:"Lagtempo", type_itt:"Tempo", type_flat:"platt", type_hills:"kuperad", type_mountains:"berg",
+    your_pick:"Ditt tips:", winner:"vinnare:", save_stages:"Spara etapptips", stages_saved:"Etapptips sparade.",
+    board_empty:"Inga deltagare ännu. Skriv ditt namn och gör några tips.",
+    board_pending:"Ställningen tänds när resultat matas in. Tills vidare visas deltagarna här.",
+    sub_scored:"{j} tröja · {s} etapp ({c} rätt)", sub_picked:"{n}/21 etapper tippade",
+    pts:"POÄNG", pending:"väntar", jersey_card:"{name}s tröjtips",
+    results_desk:"Resultatpult", pin_prompt:"Ange PIN för att registrera resultat", pin_wrong:"Inte riktigt.",
+    final_winner:"Slutlig vinnare", final_23:"Slutlig 2:a och 3:a", outcome:"Utfall", beat_q:"Slog någon Pogačar?",
+    yes:"Ja", no:"Nej", pog_actual:"Pogačars faktiska etappsegrar", stage_winners:"Etappvinnare", fill_after:"Fyll i efter varje etapp",
+    publish:"Publicera resultat", published:"Publicerat — ställningen uppdaterad live.",
+    auto_note:"Etappvinnare fylls i automatiskt varje kväll under loppet. Du kan ändra dem här.",
+    footer_scoring:"Poäng — Gul 25 · Grön / Prickig / Vit 15 vardera · Sammanlagt 2:a & 3:a 10 vardera · »Slå Pogačar?« 10 · varje rätt etappvinnare 5. Lika ställning avgörs av vem som är närmast Pogačars antal etappsegrar.",
+    footer_locks:"Låsning — tröjtipsen stänger vid lagtempot i Barcelona (4 juli); varje etapptips stänger när etappen startar. Vilodagar 13 & 20 juli."
+  }
+};
+let lang = "en";
+try { const s=localStorage.getItem("tdf2026_lang"); let g=(navigator.language||"en").slice(0,2).toLowerCase(); if(g==="nb"||g==="nn") g="no"; lang = s || g; } catch(e){}
+if(!I18N[lang]) lang="en";
+function t(k,vars){ let s=(I18N[lang]&&I18N[lang][k])!=null?I18N[lang][k]:(I18N.en[k]!=null?I18N.en[k]:k);
+  if(vars) for(const key in vars) s=s.split("{"+key+"}").join(vars[key]); return s; }
 
-/* ---------------- route data (verified 2026) ---------------- */
+/* ============ ROUTE DATA ============ */
 const STAGES = [
   {n:1, d:"Sat 4 Jul", iso:"2026-07-04T11:30:00+02:00", a:"Barcelona", b:"Barcelona", km:19.6, t:"ttt"},
   {n:2, d:"Sun 5 Jul", iso:"2026-07-05T13:00:00+02:00", a:"Tarragona", b:"Barcelona", km:168.5, t:"hills"},
@@ -219,10 +334,9 @@ const STAGES = [
   {n:21, d:"Sun 26 Jul", iso:"2026-07-26T15:30:00+02:00", a:"Thoiry", b:"Paris", km:133.0, t:"flat"},
 ];
 const STAGE_LIST = STAGES.filter(s=>!s.rest);
-const LOCK = new Date("2026-07-04T11:30:00+02:00"); // jersey lock
+const LOCK = new Date("2026-07-04T11:30:00+02:00");
 const STAGE_PTS = 5;
 
-/* ---------------- rider pools ---------------- */
 const GC = ["Tadej Pogačar","Jonas Vingegaard","Remco Evenepoel","Isaac del Toro","Juan Ayuso","Paul Seixas","Florian Lipowitz","Primož Roglič","Tobias Johannessen","Matteo Jorgenson","Cian Uijtdebroeks","Kévin Vauquelin","Tom Pidcock","Carlos Rodríguez","Felix Gall","Ben Healy"];
 const SPRINT = ["Tim Merlier","Jonathan Milan","Mads Pedersen","Jasper Philipsen","Paul Magnier","Biniam Girmay","Olav Kooij","Bryan Coquard","Søren Wærenskjold","Tadej Pogačar","Mathieu van der Poel"];
 const KOM = ["Lenny Martínez","Tom Pidcock","Ben Healy","Tadej Pogačar","Jonas Vingegaard","Valentin Paret-Peintre","Santiago Buitrago","Michael Storer","Felix Gall"];
@@ -239,41 +353,31 @@ const STAGE_POOL = [...new Set([
 ])].sort((a,b)=>a.localeCompare(b));
 
 const JERSEYS = [
-  {key:"yellow", name:"Maillot Jaune", sub:"Overall winner", pts:25, pool:GC,     css:"var(--jaune)"},
-  {key:"green",  name:"Maillot Vert",  sub:"Points / sprints", pts:15, pool:SPRINT, css:"var(--vert)"},
-  {key:"polka",  name:"Maillot à Pois",sub:"King of the Mountains", pts:15, pool:KOM, css:"polka"},
-  {key:"white",  name:"Maillot Blanc", sub:"Best young rider", pts:15, pool:YOUNG, css:"#fff"},
+  {key:"yellow", name:"Maillot Jaune", subKey:"sub_yellow", pts:25, pool:GC,     css:"var(--jaune)"},
+  {key:"green",  name:"Maillot Vert",  subKey:"sub_green",  pts:15, pool:SPRINT, css:"var(--vert)"},
+  {key:"polka",  name:"Maillot à Pois",subKey:"sub_polka",  pts:15, pool:KOM,    css:"polka"},
+  {key:"white",  name:"Maillot Blanc", subKey:"sub_white",  pts:15, pool:YOUNG,  css:"#fff"},
 ];
 
-/* ============================================================
-   2) BACKEND  — Firestore when configured, else local demo.
-   Both expose: start(onPreds,onRes), savePrediction, saveResults.
-   To move off-platform with no other changes, this is the only
-   block you touch.
-   ============================================================ */
+/* ============ BACKEND ============ */
 let backend, preds = {}, results = {};
-
 function localBackend(){
-  const read = k => { try { return JSON.parse(localStorage.getItem(k)||"null"); } catch(e){ return null; } };
-  const P="tdf2026_predictions", R="tdf2026_results";
-  let onP=()=>{}, onR=()=>{};
+  const read=k=>{ try{return JSON.parse(localStorage.getItem(k)||"null");}catch(e){return null;} };
+  const P="tdf2026_predictions", R="tdf2026_results"; let onP=()=>{}, onR=()=>{};
   return {
-    async start(cbP,cbR){ onP=cbP; onR=cbR; onP(read(P)||{}); onR(read(R)||{}); },
-    async savePrediction(slug,data){ const all=read(P)||{}; all[slug]=data; localStorage.setItem(P,JSON.stringify(all)); onP(all); },
+    async start(cbP,cbR){ onP=cbP;onR=cbR; onP(read(P)||{}); onR(read(R)||{}); },
+    async savePrediction(slug,data){ const all=read(P)||{}; all[slug]={...(all[slug]||{}),...data}; localStorage.setItem(P,JSON.stringify(all)); onP(all); },
     async saveResults(data){ const cur=read(R)||{}; const next={...cur,...data}; localStorage.setItem(R,JSON.stringify(next)); onR(next); }
   };
 }
-
 async function firebaseBackend(){
-  const appMod = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
-  const fs = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
-  const app = appMod.initializeApp(firebaseConfig);
-  const db = fs.getFirestore(app);
-  const predCol = fs.collection(db,"tdf2026_predictions");
-  const resDoc  = fs.doc(db,"tdf2026_results","main");
+  const appMod=await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
+  const fs=await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
+  const app=appMod.initializeApp(firebaseConfig); const db=fs.getFirestore(app);
+  const predCol=fs.collection(db,"tdf2026_predictions"); const resDoc=fs.doc(db,"tdf2026_results","main");
   return {
     async start(cbP,cbR){
-      fs.onSnapshot(predCol, snap=>{ const o={}; snap.forEach(d=> o[d.id]=d.data()); cbP(o); });
+      fs.onSnapshot(predCol, snap=>{ const o={}; snap.forEach(d=>o[d.id]=d.data()); cbP(o); });
       fs.onSnapshot(resDoc, d=> cbR(d.exists()? d.data() : {}));
     },
     async savePrediction(slug,data){ await fs.setDoc(fs.doc(db,"tdf2026_predictions",slug), data, {merge:true}); },
@@ -281,122 +385,110 @@ async function firebaseBackend(){
   };
 }
 
-/* ---------------- helpers ---------------- */
+/* ============ HELPERS ============ */
 const $ = s => document.querySelector(s);
 const esc = s => (s??"").toString().replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const norm = s => (s??"").toString().trim().toLowerCase();
 const slugify = s => norm(s).replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"");
 const stageLocked = st => Date.now() >= new Date(st.iso).getTime();
 function flash(el,msg,cls){ el.textContent=msg; el.className="toast "+cls; }
-
 function jersey(fill){
-  const dots = fill==="polka", base = dots ? "#fff" : fill;
-  const pat = dots ? `<g fill="var(--pois)"><circle cx="13" cy="18" r="2"/><circle cx="22" cy="14" r="2"/><circle cx="31" cy="18" r="2"/><circle cx="17" cy="26" r="2"/><circle cx="27" cy="26" r="2"/><circle cx="22" cy="33" r="2"/><circle cx="13" cy="40" r="2"/><circle cx="31" cy="40" r="2"/></g>` : "";
-  const stroke = (base==="#fff") ? "#C9C4B6" : "rgba(0,0,0,.18)";
+  const dots=fill==="polka", base=dots?"#fff":fill;
+  const pat=dots?`<g fill="var(--pois)"><circle cx="13" cy="18" r="2"/><circle cx="22" cy="14" r="2"/><circle cx="31" cy="18" r="2"/><circle cx="17" cy="26" r="2"/><circle cx="27" cy="26" r="2"/><circle cx="22" cy="33" r="2"/><circle cx="13" cy="40" r="2"/><circle cx="31" cy="40" r="2"/></g>`:"";
+  const stroke=(base==="#fff")?"#C9C4B6":"rgba(0,0,0,.18)";
   return `<svg class="jsvg" viewBox="0 0 44 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 5 L6 11 L3 19 L9 22 L9 44 H35 V22 L41 19 L38 11 L28 5 L22 10 Z" fill="${base}" stroke="${stroke}" stroke-width="1.4" stroke-linejoin="round"/>${pat}</svg>`;
 }
-function selOptions(pool, chosen){
-  let o = `<option value="">— pick a rider —</option>`;
-  pool.forEach(r=> o += `<option ${r===chosen?"selected":""}>${esc(r)}</option>`);
-  o += `<option value="__other" ${chosen && !pool.includes(chosen) ? "selected":""}>Other…</option>`;
+function selOptions(pool,chosen){
+  let o=`<option value="">${esc(t("pick_rider"))}</option>`;
+  pool.forEach(r=> o+=`<option ${r===chosen?"selected":""}>${esc(r)}</option>`);
+  o+=`<option value="__other" ${chosen && !pool.includes(chosen)?"selected":""}>${esc(t("other"))}</option>`;
   return o;
 }
+function chipLabel(ty){ return ty==="ttt"?t("type_ttt"):ty==="itt"?t("type_itt"):t("type_"+ty); }
 
-/* ---------------- identity ---------------- */
-let me = "";
-try { me = localStorage.getItem("tdf2026_me") || ""; } catch(e){}
-function myDoc(){ const s=slugify(me); return s ? (preds[s]||{name:me.trim()}) : {name:""}; }
+let me="";
+try{ me=localStorage.getItem("tdf2026_me")||""; }catch(e){}
+function myDoc(){ const s=slugify(me); return s?(preds[s]||{name:me.trim()}):{name:""}; }
 
-/* ============================================================
-   JERSEYS TAB
-   ============================================================ */
+/* ============ JERSEYS ============ */
 function renderPredict(){
-  const locked = Date.now() >= LOCK.getTime();
-  const p = myDoc();
-  let h = "";
+  const locked=Date.now()>=LOCK.getTime(), p=myDoc(); let h="";
   JERSEYS.forEach(j=>{
-    const cur = p[j.key]||"", isOther = cur && !j.pool.includes(cur);
-    h += `<div class="card"><div class="card-h">${jersey(j.css)}
-        <div><div class="t">${j.name}</div><div class="s">${j.sub}</div></div>
+    const cur=p[j.key]||"", isOther=cur&&!j.pool.includes(cur);
+    h+=`<div class="card"><div class="card-h">${jersey(j.css)}
+        <div><div class="t">${j.name}</div><div class="s">${esc(t(j.subKey))}</div></div>
         <span class="pts">${j.pts} pts</span></div>
       <select data-pick="${j.key}" ${locked?"disabled":""}>${selOptions(j.pool,cur)}</select>
-      <input class="other" type="text" data-other="${j.key}" placeholder="Type a rider name" value="${isOther?esc(cur):""}" ${isOther && !locked?"":"hidden"} ${locked?"disabled":""}></div>`;
+      <input class="other" type="text" data-other="${j.key}" placeholder="${esc(t("type_name"))}" value="${isOther?esc(cur):""}" ${isOther&&!locked?"":"hidden"} ${locked?"disabled":""}></div>`;
   });
-  h += `<div class="card"><div class="card-h">${jersey("var(--ink)")}
-      <div><div class="t">GC Podium</div><div class="s">Who joins the winner on the box</div></div>
+  h+=`<div class="card"><div class="card-h">${jersey("var(--ink)")}
+      <div><div class="t">${esc(t("podium"))}</div><div class="s">${esc(t("podium_sub"))}</div></div>
       <span class="pts">10 + 10</span></div>
     <div class="twocol">
-      <div><label class="fld">2nd overall</label><select data-pick="gc2" ${locked?"disabled":""}>${selOptions(GC,p.gc2||"")}</select></div>
-      <div><label class="fld">3rd overall</label><select data-pick="gc3" ${locked?"disabled":""}>${selOptions(GC,p.gc3||"")}</select></div>
+      <div><label class="fld">${esc(t("second"))}</label><select data-pick="gc2" ${locked?"disabled":""}>${selOptions(GC,p.gc2||"")}</select></div>
+      <div><label class="fld">${esc(t("third"))}</label><select data-pick="gc3" ${locked?"disabled":""}>${selOptions(GC,p.gc3||"")}</select></div>
     </div></div>`;
   const bp=p.beatPog;
-  h += `<div class="card"><div class="card-h">${jersey("var(--pois)")}
-      <div><div class="t">The big question</div><div class="s">Can anyone beat Pogačar to yellow?</div></div>
+  h+=`<div class="card"><div class="card-h">${jersey("var(--pois)")}
+      <div><div class="t">${esc(t("bigq"))}</div><div class="s">${esc(t("bigq_sub"))}</div></div>
       <span class="pts">10 pts</span></div>
     <div class="seg-toggle" id="beatPog">
-      <button data-bp="yes" aria-pressed="${bp==="yes"}" ${locked?"disabled":""}>Yes — upset</button>
-      <button data-bp="no"  aria-pressed="${bp==="no"}"  ${locked?"disabled":""}>No — Pogi again</button></div>
-    <div style="margin-top:14px"><label class="fld" for="pog">Tie-break · Pogačar's stage wins (0–10)</label>
-      <input type="number" id="pog" min="0" max="10" inputmode="numeric" placeholder="your guess" value="${p.pogWins??""}" ${locked?"disabled":""}></div></div>`;
-  h += `<button class="cta" id="submit" ${locked?"disabled":""}>${locked?"Jersey picks are locked":"Save jersey picks"}</button>
-        <div class="toast" id="toast"></div>`;
-  $("#predict").innerHTML = h;
-  if (!locked) wirePredict();
+      <button data-bp="yes" aria-pressed="${bp==="yes"}" ${locked?"disabled":""}>${esc(t("yes_upset"))}</button>
+      <button data-bp="no"  aria-pressed="${bp==="no"}"  ${locked?"disabled":""}>${esc(t("no_pogi"))}</button></div>
+    <div style="margin-top:14px"><label class="fld" for="pog">${esc(t("tiebreak"))}</label>
+      <input type="number" id="pog" min="0" max="10" inputmode="numeric" placeholder="${esc(t("your_guess"))}" value="${p.pogWins??""}" ${locked?"disabled":""}></div></div>`;
+  h+=`<button class="cta" id="submit" ${locked?"disabled":""}>${locked?esc(t("jerseys_locked")):esc(t("save_jerseys"))}</button><div class="toast" id="toast"></div>`;
+  $("#predict").innerHTML=h;
+  if(!locked) wirePredict();
 }
 function wirePredict(){
-  const work = myDoc(); window.__work = {...work};
+  window.__work={...myDoc()};
   document.querySelectorAll("#predict select[data-pick]").forEach(s=> s.onchange=e=>{
     const k=e.target.dataset.pick, v=e.target.value, o=document.querySelector(`#predict input[data-other="${k}"]`);
     if(v==="__other"){ if(o){o.hidden=false;o.focus();} window.__work[k]=""; } else { if(o){o.hidden=true;o.value="";} window.__work[k]=v; }
   });
   document.querySelectorAll("#predict input[data-other]").forEach(i=> i.oninput=e=> window.__work[e.target.dataset.other]=e.target.value.trim());
   document.querySelectorAll("#beatPog button").forEach(b=> b.onclick=()=>{ window.__work.beatPog=b.dataset.bp;
-    document.querySelectorAll("#beatPog button").forEach(x=>x.setAttribute("aria-pressed", x===b)); });
-  $("#pog").oninput=e=>{ window.__work.pogWins = e.target.value===""?null:Math.max(0,Math.min(10,parseInt(e.target.value)||0)); };
+    document.querySelectorAll("#beatPog button").forEach(x=>x.setAttribute("aria-pressed",x===b)); });
+  $("#pog").oninput=e=>{ window.__work.pogWins=e.target.value===""?null:Math.max(0,Math.min(10,parseInt(e.target.value)||0)); };
   $("#submit").onclick=saveJerseys;
 }
 async function saveJerseys(){
-  const t=$("#toast");
-  if(!me.trim()) return flash(t,"Add your name up top first.","err");
+  const tt=$("#toast");
+  if(!me.trim()) return flash(tt,t("err_name"),"err");
   const w=window.__work||{};
-  for(const k of ["yellow","green","polka","white","gc2","gc3"]) if(!w[k]) return flash(t,"Pick a rider for every jersey and both podium spots.","err");
-  if(!w.beatPog) return flash(t,"Answer the Pogačar question.","err");
-  const data={name:me.trim(), yellow:w.yellow,green:w.green,polka:w.polka,white:w.white,gc2:w.gc2,gc3:w.gc3,
-    beatPog:w.beatPog, pogWins:w.pogWins??null, ts:Date.now()};
-  try{ await backend.savePrediction(slugify(me), data); flash(t,"Saved. Bonne chance!","ok"); }
-  catch(e){ flash(t,"Save failed — check Firebase config.","err"); }
+  for(const k of ["yellow","green","polka","white","gc2","gc3"]) if(!w[k]) return flash(tt,t("err_jerseys"),"err");
+  if(!w.beatPog) return flash(tt,t("err_bigq"),"err");
+  const data={name:me.trim(),yellow:w.yellow,green:w.green,polka:w.polka,white:w.white,gc2:w.gc2,gc3:w.gc3,beatPog:w.beatPog,pogWins:w.pogWins??null,ts:Date.now()};
+  try{ await backend.savePrediction(slugify(me),data); flash(tt,t("saved_jerseys"),"ok"); }
+  catch(e){ flash(tt,t("save_fail"),"err"); }
 }
 
-/* ============================================================
-   STAGES TAB
-   ============================================================ */
+/* ============ STAGES ============ */
 function renderStages(){
-  const p = myDoc(), picks = p.stages || {};
-  let h = `<div class="card"><p class="hint" style="margin:0">Pick a stage winner each day — ${STAGE_PTS} pts per correct call. Each stage locks when it rolls out; you can edit until then.</p></div><div class="card">`;
+  const p=myDoc(), picks=p.stages||{};
+  let h=`<div class="card"><p class="hint" style="margin:0">${esc(t("stages_intro"))}</p></div><div class="card">`;
   STAGES.forEach(st=>{
-    if(st.rest){ h += `<div class="rest">Rest day · ${st.rest}</div>`; return; }
-    const locked = stageLocked(st), cur = picks[st.n]||"", isOther = cur && !STAGE_POOL.includes(cur);
-    const win = results.stageWinners && results.stageWinners[st.n];
-    h += `<div class="stage ${locked?"locked":""}">
-        <div class="num">${st.n}</div>
-        <div class="meta">
-          <div class="top"><span class="rte">${esc(st.a)} › ${esc(st.b)}</span>
-            <span class="chip ${st.t}">${st.t==="ttt"?"Team TT":st.t==="itt"?"Time trial":st.t}</span></div>
-          <div class="dt">${st.d} · ${st.km} km</div>`;
+    if(st.rest){ h+=`<div class="rest">${esc(t("rest_day"))} · ${st.rest}</div>`; return; }
+    const locked=stageLocked(st), cur=picks[st.n]||"", isOther=cur&&!STAGE_POOL.includes(cur);
+    const win=results.stageWinners&&results.stageWinners[st.n];
+    h+=`<div class="stage ${locked?"locked":""}"><div class="num">${st.n}</div><div class="meta">
+        <div class="top"><span class="rte">${esc(st.a)} › ${esc(st.b)}</span><span class="chip ${st.t}">${esc(chipLabel(st.t))}</span></div>
+        <div class="dt">${st.d} · ${st.km} km</div>`;
     if(locked){
-      h += `<div class="win">Your pick: <b style="color:${win&&norm(win)===norm(cur)?"var(--vert)":"var(--ink)"}">${cur?esc(cur):"—"}</b>${win?` · winner: ${esc(win)}`:""}</div>`;
+      h+=`<div class="win">${esc(t("your_pick"))} <b style="color:${win&&norm(win)===norm(cur)?"var(--vert)":"var(--ink)"}">${cur?esc(cur):"—"}</b>${win?` · ${esc(t("winner"))} ${esc(win)}`:""}</div>`;
     } else {
-      h += `<select data-stage="${st.n}">${selOptions(STAGE_POOL,cur)}</select>
-            <input class="other" type="text" data-sother="${st.n}" placeholder="Type a rider name" value="${isOther?esc(cur):""}" ${isOther?"":"hidden"}>`;
+      h+=`<select data-stage="${st.n}">${selOptions(STAGE_POOL,cur)}</select>
+          <input class="other" type="text" data-sother="${st.n}" placeholder="${esc(t("type_name"))}" value="${isOther?esc(cur):""}" ${isOther?"":"hidden"}>`;
     }
-    h += `</div></div>`;
+    h+=`</div></div>`;
   });
-  h += `</div><div class="stagewrap-foot"><button class="cta" id="saveStages" style="flex:1">Save stage picks</button></div><div class="savepill" id="stagesaved"></div>`;
-  $("#stages").innerHTML = h;
+  h+=`</div><div class="stagewrap-foot"><button class="cta" id="saveStages">${esc(t("save_stages"))}</button></div><div class="savepill" id="stagesaved"></div>`;
+  $("#stages").innerHTML=h;
   wireStages();
 }
 function wireStages(){
-  const p = myDoc(); window.__stages = {...(p.stages||{})};
+  window.__stages={...(myDoc().stages||{})};
   document.querySelectorAll("#stages select[data-stage]").forEach(s=> s.onchange=e=>{
     const n=e.target.dataset.stage, v=e.target.value, o=document.querySelector(`#stages input[data-sother="${n}"]`);
     if(v==="__other"){ if(o){o.hidden=false;o.focus();} delete window.__stages[n]; }
@@ -410,30 +502,28 @@ function wireStages(){
 }
 async function saveStages(){
   const m=$("#stagesaved");
-  if(!me.trim()){ m.textContent="Add your name up top first."; m.style.color="var(--pois)"; return; }
+  if(!me.trim()){ m.textContent=t("err_name"); m.style.color="var(--pois)"; return; }
   const p=myDoc();
-  const data={name:me.trim(), stages:{...(p.stages||{}), ...(window.__stages||{})}};
+  const data={name:me.trim(), stages:{...(p.stages||{}),...(window.__stages||{})}};
   if(!p.ts) data.ts=Date.now();
-  try{ await backend.savePrediction(slugify(me), data); m.textContent="Stage picks saved."; m.style.color="var(--vert)"; }
-  catch(e){ m.textContent="Save failed — check Firebase config."; m.style.color="var(--pois)"; }
+  try{ await backend.savePrediction(slugify(me),data); m.textContent=t("stages_saved"); m.style.color="var(--vert)"; }
+  catch(e){ m.textContent=t("save_fail"); m.style.color="var(--pois)"; }
 }
 
-/* ============================================================
-   STANDINGS
-   ============================================================ */
+/* ============ STANDINGS ============ */
 function scoreOf(p){
-  const b={}; let jersey=0, stage=0;
-  const hit=(k,pts)=>{ const g = results[k] && p[k] && norm(results[k])===norm(p[k]); b[k]={hit:!!g,pts:g?pts:0}; if(g) jersey+=pts; };
+  const b={}; let jp=0, sp=0;
+  const hit=(k,pts)=>{ const g=results[k]&&p[k]&&norm(results[k])===norm(p[k]); b[k]={hit:!!g,pts:g?pts:0}; if(g) jp+=pts; };
   hit("yellow",25); hit("green",15); hit("polka",15); hit("white",15); hit("gc2",10); hit("gc3",10);
-  const bg = results.beatPog && p.beatPog && results.beatPog===p.beatPog; b.beatPog={hit:!!bg,pts:bg?10:0}; if(bg) jersey+=10;
-  const sw = results.stageWinners||{}, ps=p.stages||{}; let sc=0;
-  STAGE_LIST.forEach(st=>{ if(sw[st.n] && ps[st.n] && norm(sw[st.n])===norm(ps[st.n])){ stage+=STAGE_PTS; sc++; } });
-  return {b, jersey, stage, stageCount:sc, total:jersey+stage};
+  const bg=results.beatPog&&p.beatPog&&results.beatPog===p.beatPog; b.beatPog={hit:!!bg,pts:bg?10:0}; if(bg) jp+=10;
+  const sw=results.stageWinners||{}, ps=p.stages||{}; let sc=0;
+  STAGE_LIST.forEach(st=>{ if(sw[st.n]&&ps[st.n]&&norm(sw[st.n])===norm(ps[st.n])){ sp+=STAGE_PTS; sc++; } });
+  return {b, jersey:jp, stage:sp, stageCount:sc, total:jp+sp};
 }
 function renderBoard(){
   const list=Object.values(preds), sec=$("#board");
-  if(!list.length){ sec.innerHTML=`<div class="card"><div class="empty">No entries yet. Add your name and make some picks.</div></div>`; return; }
-  const hasRes = Object.keys(results).some(k=>k!=="stageWinners") || (results.stageWinners && Object.keys(results.stageWinners).length);
+  if(!list.length){ sec.innerHTML=`<div class="card"><div class="empty">${esc(t("board_empty"))}</div></div>`; return; }
+  const hasRes=Object.keys(results).some(k=>k!=="stageWinners")||(results.stageWinners&&Object.keys(results.stageWinners).length);
   const rows=list.map(p=>({p,...scoreOf(p)}));
   rows.sort((a,b)=>{
     if(b.total!==a.total) return b.total-a.total;
@@ -443,73 +533,70 @@ function renderBoard(){
   const order=["yellow","green","polka","white","gc2","gc3","beatPog"];
   const sw={yellow:"var(--jaune)",green:"var(--vert)",polka:"var(--pois)",white:"#fff",gc2:"var(--ink)",gc3:"var(--ink-soft)",beatPog:"var(--pois)"};
   let h=`<div class="card">`;
-  if(!hasRes) h+=`<p class="hint" style="margin:0 0 10px">Standings light up as results are entered. For now this is the field of entries.</p>`;
+  if(!hasRes) h+=`<p class="hint" style="margin:0 0 10px">${esc(t("board_pending"))}</p>`;
   rows.forEach((r,i)=>{
     const mini=order.map(k=>{ const on=hasRes&&r.b[k]&&r.b[k].hit;
       return `<i class="${on?"":"miss"}" style="background:${sw[k]};${k==="white"?"box-shadow:inset 0 0 0 1px var(--line)":""}"></i>`; }).join("");
     const stagedone=Object.keys(r.p.stages||{}).length;
-    const brk=order.map(k=>{ const pick=k==="beatPog"?(r.p.beatPog==="yes"?"Upset":r.p.beatPog==="no"?"Pogi":"—"):r.p[k];
+    const sub=hasRes? t("sub_scored",{j:r.jersey,s:r.stage,c:r.stageCount}) : t("sub_picked",{n:stagedone});
+    const brk=order.map(k=>{ const pick=k==="beatPog"?(r.p.beatPog==="yes"?t("yes_upset"):r.p.beatPog==="no"?t("no_pogi"):"—"):r.p[k];
       const cls=hasRes?(r.b[k]&&r.b[k].hit?"g":"x"):"x";
       return `<span class="${cls}">${esc(pick||"—")}</span><span class="${cls}" style="text-align:right">${hasRes?(r.b[k]&&r.b[k].hit?"+"+r.b[k].pts:"0"):""}</span>`; }).join("");
     h+=`<div class="lb-row ${i===0&&hasRes?"lead":""}">
         <div class="rank">${hasRes?i+1:"·"}</div>
         <div><div class="who">${esc(r.p.name||"—")}</div>
-          <div class="subline">${hasRes?`${r.jersey} jersey · ${r.stage} stage (${r.stageCount} hit)`:`${stagedone}/21 stages picked`}${r.p.pogWins!=null?` · Pogi ${r.p.pogWins}`:""}</div>
+          <div class="subline">${esc(sub)}${r.p.pogWins!=null?` · Pogi ${r.p.pogWins}`:""}</div>
           <div class="mini">${mini}</div></div>
-        <div class="score">${hasRes?r.total:"—"}<small>${hasRes?"PTS":"pending"}</small></div></div>
-      <details class="brk"><summary>${esc(r.p.name||"entry")}'s jersey card</summary>
-        <div class="brk-grid">${brk}</div></details>`;
+        <div class="score">${hasRes?r.total:"—"}<small>${hasRes?esc(t("pts")):esc(t("pending"))}</small></div></div>
+      <details class="brk"><summary>${esc(t("jersey_card",{name:r.p.name||"—"}))}</summary><div class="brk-grid">${brk}</div></details>`;
   });
   h+=`</div>`;
   sec.innerHTML=h;
 }
 
-/* ============================================================
-   RESULTS (PIN 2468)
-   ============================================================ */
+/* ============ RESULTS (PIN 2468) ============ */
 let unlocked=false;
 function renderResults(){
   const sec=$("#results");
   if(!unlocked){
     sec.innerHTML=`<div class="card"><div class="gate">
       <div class="card-h" style="justify-content:center">${jersey("var(--jaune)")}
-        <div><div class="t">Results desk</div><div class="s">Enter the PIN to record finishers</div></div></div>
+        <div><div class="t">${esc(t("results_desk"))}</div><div class="s">${esc(t("pin_prompt"))}</div></div></div>
       <input type="password" id="pin" inputmode="numeric" placeholder="••••" maxlength="8">
       <div class="saved-flag" id="pinmsg"></div></div></div>`;
     const pin=$("#pin");
-    pin.oninput=()=>{ if(pin.value==="2468"){ unlocked=true; renderResults(); } else if(pin.value.length>=4){ $("#pinmsg").textContent="Not quite."; } };
+    pin.oninput=()=>{ if(pin.value==="2468"){ unlocked=true; renderResults(); } else if(pin.value.length>=4){ $("#pinmsg").textContent=t("pin_wrong"); } };
     return;
   }
-  const r=results, sworn=r.stageWinners||{};
-  let h="";
+  const r=results, sworn=r.stageWinners||{}; let h="";
+  h+=`<div class="card"><p class="hint" style="margin:0">${esc(t("auto_note"))}</p></div>`;
   JERSEYS.forEach(j=>{
     const cur=r[j.key]||"", isOther=cur&&!j.pool.includes(cur);
-    h+=`<div class="card"><div class="card-h">${jersey(j.css)}<div><div class="t">${j.name}</div><div class="s">Final winner</div></div></div>
+    h+=`<div class="card"><div class="card-h">${jersey(j.css)}<div><div class="t">${j.name}</div><div class="s">${esc(t("final_winner"))}</div></div></div>
       <select data-res="${j.key}">${selOptions(j.pool,cur)}</select>
-      <input class="other" type="text" data-rother="${j.key}" placeholder="Type a rider name" value="${isOther?esc(cur):""}" ${isOther?"":"hidden"}></div>`;
+      <input class="other" type="text" data-rother="${j.key}" placeholder="${esc(t("type_name"))}" value="${isOther?esc(cur):""}" ${isOther?"":"hidden"}></div>`;
   });
-  h+=`<div class="card"><div class="card-h">${jersey("var(--ink)")}<div><div class="t">GC Podium</div><div class="s">Final 2nd &amp; 3rd</div></div></div>
-    <div class="twocol"><div><label class="fld">2nd</label><select data-res="gc2">${selOptions(GC,r.gc2||"")}</select></div>
-      <div><label class="fld">3rd</label><select data-res="gc3">${selOptions(GC,r.gc3||"")}</select></div></div></div>`;
-  h+=`<div class="card"><div class="card-h">${jersey("var(--pois)")}<div><div class="t">Outcome</div><div class="s">Did anyone beat Pogačar?</div></div></div>
-    <div class="seg-toggle" id="rBeat"><button data-rbp="yes" aria-pressed="${r.beatPog==="yes"}">Yes</button><button data-rbp="no" aria-pressed="${r.beatPog==="no"}">No</button></div>
-    <div style="margin-top:14px"><label class="fld">Pogačar's actual stage wins</label>
+  h+=`<div class="card"><div class="card-h">${jersey("var(--ink)")}<div><div class="t">${esc(t("podium"))}</div><div class="s">${esc(t("final_23"))}</div></div></div>
+    <div class="twocol"><div><label class="fld">${esc(t("second"))}</label><select data-res="gc2">${selOptions(GC,r.gc2||"")}</select></div>
+      <div><label class="fld">${esc(t("third"))}</label><select data-res="gc3">${selOptions(GC,r.gc3||"")}</select></div></div></div>`;
+  h+=`<div class="card"><div class="card-h">${jersey("var(--pois)")}<div><div class="t">${esc(t("outcome"))}</div><div class="s">${esc(t("beat_q"))}</div></div></div>
+    <div class="seg-toggle" id="rBeat"><button data-rbp="yes" aria-pressed="${r.beatPog==="yes"}">${esc(t("yes"))}</button><button data-rbp="no" aria-pressed="${r.beatPog==="no"}">${esc(t("no"))}</button></div>
+    <div style="margin-top:14px"><label class="fld">${esc(t("pog_actual"))}</label>
       <input type="number" id="rPog" min="0" max="10" value="${r.pogWins??""}" placeholder="0–10"></div></div>`;
-  // stage winners
-  h+=`<div class="card"><div class="card-h">${jersey("var(--jaune)")}<div><div class="t">Stage winners</div><div class="s">Fill in after each stage</div></div></div>`;
+  h+=`<div class="card"><div class="card-h">${jersey("var(--jaune)")}<div><div class="t">${esc(t("stage_winners"))}</div><div class="s">${esc(t("fill_after"))}</div></div></div>`;
   STAGE_LIST.forEach(st=>{
     const cur=sworn[st.n]||"", isOther=cur&&!STAGE_POOL.includes(cur);
     h+=`<div class="stage"><div class="num">${st.n}</div><div class="meta">
-        <div class="top"><span class="rte">${esc(st.a)} › ${esc(st.b)}</span><span class="chip ${st.t}">${st.t==="ttt"?"Team TT":st.t==="itt"?"Time trial":st.t}</span></div>
+        <div class="top"><span class="rte">${esc(st.a)} › ${esc(st.b)}</span><span class="chip ${st.t}">${esc(chipLabel(st.t))}</span></div>
         <select data-rstage="${st.n}">${selOptions(STAGE_POOL,cur)}</select>
-        <input class="other" type="text" data-rsother="${st.n}" placeholder="Type a rider name" value="${isOther?esc(cur):""}" ${isOther?"":"hidden"}></div></div>`;
+        <input class="other" type="text" data-rsother="${st.n}" placeholder="${esc(t("type_name"))}" value="${isOther?esc(cur):""}" ${isOther?"":"hidden"}></div></div>`;
   });
-  h+=`</div><button class="cta" id="saveRes" style="background:var(--vert);color:#fff">Publish results</button><div class="saved-flag" id="resmsg"></div>`;
+  h+=`</div><button class="cta" id="saveRes" style="background:var(--vert);color:#fff">${esc(t("publish"))}</button><div class="saved-flag" id="resmsg"></div>`;
   sec.innerHTML=h;
   wireResults();
 }
 function wireResults(){
-  window.__res = {...results, stageWinners:{...(results.stageWinners||{})}};
+  window.__res={...results, stageWinners:{...(results.stageWinners||{})}};
   $("#results").querySelectorAll("select[data-res]").forEach(s=> s.onchange=e=>{
     const k=e.target.dataset.res, v=e.target.value, o=$("#results").querySelector(`input[data-rother="${k}"]`);
     if(v==="__other"){ if(o){o.hidden=false;o.focus();} window.__res[k]=""; } else { if(o){o.hidden=true;o.value="";} window.__res[k]=v; }
@@ -526,52 +613,55 @@ function wireResults(){
   });
   document.querySelectorAll("#rBeat button").forEach(b=> b.onclick=()=>{ window.__res.beatPog=b.dataset.rbp;
     document.querySelectorAll("#rBeat button").forEach(x=>x.setAttribute("aria-pressed",x===b)); });
-  $("#rPog").oninput=e=> window.__res.pogWins = e.target.value===""?null:Math.max(0,Math.min(10,parseInt(e.target.value)||0));
-  $("#saveRes").onclick=async()=>{
-    const m=$("#resmsg");
-    try{ await backend.saveResults(window.__res); m.textContent="Published — standings updated live."; m.style.color="var(--vert)"; }
-    catch(e){ m.textContent="Save failed — check Firebase config."; m.style.color="var(--pois)"; }
+  $("#rPog").oninput=e=> window.__res.pogWins=e.target.value===""?null:Math.max(0,Math.min(10,parseInt(e.target.value)||0));
+  $("#saveRes").onclick=async()=>{ const m=$("#resmsg");
+    try{ await backend.saveResults(window.__res); m.textContent=t("published"); m.style.color="var(--vert)"; }
+    catch(e){ m.textContent=t("save_fail"); m.style.color="var(--pois)"; }
   };
 }
 
-/* ============================================================
-   SHELL
-   ============================================================ */
+/* ============ SHELL ============ */
 function activeTab(){ return document.querySelector('.tab[aria-selected="true"]').dataset.tab; }
-function refresh(){ const t=activeTab(); if(t==="predict")renderPredict(); else if(t==="stages")renderStages(); else if(t==="board")renderBoard(); else if(t==="results"&&!unlocked)renderResults(); }
+function refresh(){ const x=activeTab(); if(x==="predict")renderPredict(); else if(x==="stages")renderStages(); else if(x==="board")renderBoard(); else if(x==="results"&&!unlocked)renderResults(); }
 function tabTo(name){
-  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected", t.dataset.tab===name));
-  ["predict","stages","board","results"].forEach(s=> $("#"+s).hidden = s!==name);
+  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.tab===name));
+  ["predict","stages","board","results"].forEach(s=> $("#"+s).hidden=s!==name);
   if(name==="predict")renderPredict(); if(name==="stages")renderStages(); if(name==="board")renderBoard(); if(name==="results")renderResults();
 }
-document.querySelectorAll(".tab").forEach(t=> t.onclick=()=>tabTo(t.dataset.tab));
+document.querySelectorAll(".tab").forEach(tb=> tb.onclick=()=>tabTo(tb.dataset.tab));
 
-$("#me").value = me;
-$("#me").oninput = e=>{ me=e.target.value; try{ localStorage.setItem("tdf2026_me", me); }catch(err){} refresh(); };
-
-function countdown(){ const el=$("#cd"), d=LOCK.getTime()-Date.now(); el.textContent = d<=0 ? "LIVE" : Math.floor(d/86400000)+"d"; }
-
-function setupBanner(){
-  if(CONFIGURED) return;
-  $("#setup").innerHTML = `<div class="banner"><b>Demo mode</b> — running on this device only. To switch on the shared office pool, paste your Firebase project config into the <code>firebaseConfig</code> block near the top of this file (you can reuse your osalmaps project), publish the two open Firestore rules shown in the comment, and host the file. Everything else stays the same.</div>`;
+function applyStatic(){
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=> el.textContent=t(el.dataset.i18n));
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=> el.placeholder=t(el.dataset.i18nPh));
+  $("#title").textContent=POOL_NAME; document.title=POOL_NAME;
+  setLive(CONFIGURED);
 }
-function setLive(on){ const l=$("#live"); l.classList.toggle("on",on); $("#livetxt").textContent = on?"live":"local"; }
+function setLang(l){
+  if(!I18N[l]) return; lang=l; try{ localStorage.setItem("tdf2026_lang",l); }catch(e){}
+  document.querySelectorAll("#langsw button").forEach(b=> b.setAttribute("aria-pressed", b.dataset.lang===l));
+  applyStatic(); refresh();
+}
+document.querySelectorAll("#langsw button").forEach(b=> b.onclick=()=>setLang(b.dataset.lang));
+
+$("#me").oninput=e=>{ me=e.target.value; try{ localStorage.setItem("tdf2026_me",me); }catch(err){} refresh(); };
+function countdown(){ const el=$("#cd"), d=LOCK.getTime()-Date.now(); el.textContent=d<=0?"LIVE":Math.floor(d/86400000)+"d"; }
+function setLive(on){ const l=$("#live"); l.classList.toggle("on",on); $("#livetxt").textContent=on?t("live"):t("local"); }
+function setupBanner(){ if(CONFIGURED) return;
+  $("#setup").innerHTML=`<div class="card"><p class="hint" style="margin:0">Demo mode — add Firebase config for the shared pool.</p></div>`;
+}
 
 (async function boot(){
-  document.getElementById("title").textContent = POOL_NAME;
-  document.title = POOL_NAME;
-  setupBanner(); countdown(); setInterval(countdown,60000);
+  $("#me").value=me;
+  document.querySelectorAll("#langsw button").forEach(b=> b.setAttribute("aria-pressed", b.dataset.lang===lang));
+  applyStatic(); setupBanner(); countdown(); setInterval(countdown,60000);
   backend = CONFIGURED ? await firebaseBackend() : localBackend();
-  await backend.start(
-    p=>{ preds=p||{}; refresh(); },
-    r=>{ results=r||{}; refresh(); }
-  );
-  setLive(CONFIGURED);
-  renderPredict();
+  await backend.start(p=>{ preds=p||{}; refresh(); }, r=>{ results=r||{}; refresh(); });
+  setLive(CONFIGURED); renderPredict();
 })().catch(err=>{
   console.error(err);
-  $("#setup").innerHTML = `<div class="banner"><b>Firebase error</b> — couldn't connect with the config provided. Double-check the <code>firebaseConfig</code> values and that Firestore is enabled. The console has details.</div>`;
-  backend = localBackend(); backend.start(p=>{preds=p;refresh();}, r=>{results=r;refresh();}); renderPredict();
+  $("#setup").innerHTML=`<div class="card"><p class="hint" style="margin:0">Connection error — check the Firebase config. Running locally for now.</p></div>`;
+  backend=localBackend(); backend.start(p=>{preds=p;refresh();}, r=>{results=r;refresh();}); applyStatic(); renderPredict();
 });
 </script>
 </body>
